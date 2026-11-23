@@ -1,0 +1,13 @@
+{
+  "name": "tarkle",
+  "version": "1.1.0",
+  "description": "Find, read and deliver your business files and documents from Gemini CLI. Answers cited from your own documents, PDF and Office editing, share links and file requests.",
+  "mcpServers": {
+    "tarkle": {
+      "url": "https://mcp.tarkle.tech/mcp",
+      "type": "http",
+      "timeout": 300000
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
