@@ -15,7 +15,7 @@ This repository holds the Gemini CLI extension and the client setup. The server 
 
 ## What you can do
 
-- **Manage files and folders.** Upload files, organize them in folders and team folders, rename, move, copy and tag them, and restore an earlier version or a file from the recovery bin.
+- **Manage files and folders.** Upload files, organize them in folders and team folders, rename, move, copy and tag them, and restore an earlier version (Pro) or a file from the recovery bin.
 - **Share files.** Share a build, an export or a report with a link, and see the links you already shared.
 - **Request documents.** Ask your team, clients or partners for files with an upload link, and see what they sent.
 - **Work with clients.** Keep contacts in one place and put files in a client's portal.
@@ -64,6 +64,18 @@ Add to `.vscode/mcp.json`:
 }
 ```
 
+### Hermes Agent
+
+```bash
+hermes plugins install tarkleHQ/tarkle-mcp-server --no-enable
+hermes plugins enable tarkle
+hermes mcp add tarkle --url https://mcp.tarkle.tech/mcp --auth oauth
+hermes config set mcp_servers.tarkle.trust untrusted
+hermes config set mcp_servers.tarkle.timeout 300
+```
+
+The plugin adds the Tarkle server and the Tarkle skill. The `hermes mcp add` line turns on the Tarkle sign-in: sign in to Tarkle in the browser tab that opens and approve the connection. It replaces the plugin's server entry, so the two `hermes config set` lines put back the plugin's settings: Hermes asks before each Tarkle tool that is not read-only, and long uploads get 5 minutes. Run them before you start a chat. Then ask "List my Tarkle workspaces". No API key is needed. If the sign-in expires, run `hermes mcp login tarkle`.
+
 ### Kiro
 
 Install the Tarkle power: https://github.com/tarkleHQ/tarkle-for-kiro
@@ -106,8 +118,13 @@ The table lists the 102 tools of the Tarkle MCP server. Your assistant gets the 
 | Path | What it is |
 | --- | --- |
 | `gemini-extension.json` | Gemini CLI extension manifest: the Tarkle server |
+| `plugin.json`, `mcp.json` | Hermes Agent plugin manifest and the Tarkle server |
+| `after-install.md` | Setup steps Hermes shows after install |
+| `skills/tarkle/SKILL.md` | Agent skill: how to use Tarkle's tools. Also on [skills.sh](https://skills.sh): `npx skills add tarkleHQ/tarkle-mcp-server` |
 | `GEMINI.md` | How the assistant uses Tarkle's tools |
-| `assets/logo.svg`, `assets/logo.png` | Tarkle logo (SVG, and PNG at 816 x 816) |
+| `server.json` | Official MCP Registry entry (`tech.tarkle/tarkle`) |
+| `lhm.plugin.json` | LobeHub Marketplace listing |
+| `assets/logo.svg`, `assets/logo.png`, `assets/logo-400.png` | Tarkle logo (SVG, and PNG at 816 x 816 and 400 x 400) |
 
 ## Privacy and support
 
