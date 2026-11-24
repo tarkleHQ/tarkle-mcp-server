@@ -72,7 +72,7 @@
     },
     {
       "name": "tarkle_search_files",
-      "description": "Search the words INSIDE the workspace's files (PDF, Word, text, Markdown, subtitles, scanned pages, and what is said in audio and video recordings) and get the best matching passages, each with fileId, name, page and a snippet; a recording's snippet starts with its time as [m:ss] and has no page. Read more of a hit with tarkle_read_file. coverage says how many files were searched and how many cannot be searched as text (pictures, archives, recordings with no speech) or are still waiting: if waiting is above 0, search again. Only files this person can open are searched. Searching files Tarkle has already read uses no credits; a scan or recording it has not read yet is read first, which uses the workspace's AI credits.",
+      "description": "Search the words INSIDE the workspace's files (PDF, Word, text, Markdown, subtitles, scanned pages, and what is said in audio and video recordings) and get the best matching passages, each with fileId, name, page and a snippet; a recording's snippet starts with its time as [m:ss] and has no page. Read more of a hit with tarkle_read_file. coverage says how many files were searched and how many cannot be searched as text (pictures, archives, recordings with no speech) or are still waiting: if waiting is above 0, search again. Only files this person can open are searched. Searching can use a few of the workspace's AI credits to finish preparing files for search, and a scan or recording Tarkle has not read yet is read first, which also uses AI credits.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -166,7 +166,7 @@
     },
     {
       "name": "tarkle_ask",
-      "description": "Ask a question and get an answer written from the workspace's files, with the sources it used: numbered [n] in the answer, each with fileId, name and pages. Use it when you want Tarkle to read the files for you; to read them yourself use tarkle_search_files and tarkle_read_file, which use no credits for files Tarkle has already read (a scan or recording it has not read yet is read first, which uses AI credits). This SPENDS CREDITS like a question in Ask about files (the workspace's plan credits or its own AI key pay; the answer says how many were used; deep is Pro only). It only reads: nothing is changed. Only files this person can open are read. folderId limits the question to one folder; mode deep is slower and thorough. Nothing is saved between calls: for a follow-up send the earlier questions and answers as history.",
+      "description": "Ask a question and get an answer written from the workspace's files, with the sources it used: numbered [n] in the answer, each with fileId, name and pages. Use it when you want Tarkle to read the files for you; to read them yourself use tarkle_search_files and tarkle_read_file, which write no answer: reading a file Tarkle has already read uses no credits, searching can use a few to finish preparing files for search, and a scan or recording Tarkle has not read yet is read first, which uses AI credits. This SPENDS CREDITS like a question in Ask about files (the workspace's plan credits or its own AI key pay; the answer says how many were used; deep is Pro only). It only reads: nothing is changed. Only files this person can open are read. folderId limits the question to one folder; mode deep is slower and thorough. Nothing is saved between calls: for a follow-up send the earlier questions and answers as history.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2199,7 +2199,7 @@
     },
     {
       "name": "tarkle_get_usage",
-      "description": "One workspace's storage (usedBytes, limitBytes, freeBytes, bytes by kind of file, region, and how it gets its space: own, shared from the organization's pool, or assigned) and the AI credits it can still spend today and this month (aiCredits: payer tarkle or own_key, today, thisMonth, the plan allowance, the workspace caps, extra credits, when each window resets). A null limit means no limit. Asking questions (tarkle_ask) and reading data with Studio spend credits; reading files and searching do not.",
+      "description": "One workspace's storage (usedBytes, limitBytes, freeBytes, bytes by kind of file, region, and how it gets its space: own, shared from the organization's pool, or assigned) and the AI credits it can still spend today and this month (aiCredits: payer tarkle or own_key, today, thisMonth, the plan allowance, the workspace caps, extra credits, when each window resets). A null limit means no limit. Asking questions (tarkle_ask) and reading data with Studio spend credits. Reading a file Tarkle has already read does not; searching can use a few credits to finish preparing files for search, and a scan or recording not read yet is read first, which uses credits.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2882,7 +2882,7 @@
     },
     {
       "name": "tarkle_list_team_folders",
-      "description": "List the team folders in a workspace that you can see (a team folder is a shared folder with its own people and storage budget; it is NOT the list of workspace members, see tarkle_list_members for that). Shows who can open each one (memberUserIds, user ids from tarkle_list_members), its storage budget (null means no limit), how much it uses, and the id of its main folder (use it as folderId in uploads). Team folders need a Pro or Agency plan.",
+      "description": "List the team folders in a workspace that you can see (a team folder is a shared folder with its own people and storage budget; it is NOT the list of workspace members, see tarkle_list_members for that). Shows who can open each one (memberUserIds, user ids from tarkle_list_members), its storage budget (null means no limit), how much it uses, and the id of its main folder (use it as folderId in uploads). Listing works on any plan; creating and changing team folders needs a Pro, Agency or lifetime plan.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2900,7 +2900,7 @@
     },
     {
       "name": "tarkle_create_team_folder",
-      "description": "Create a team folder in a workspace: a shared folder with an optional storage budget. Only workspace Owners and Admins can, on a plan with team folders (Pro or Agency). access 'members' (default) is private to the people you add with tarkle_add_member_to_team_folder; 'everyone' is open to the whole workspace. No email is sent. Fails if a team folder with that name exists.",
+      "description": "Create a team folder in a workspace: a shared folder with an optional storage budget. Only workspace Owners and Admins can, on a plan with team folders (Pro, Agency or a lifetime plan). access 'members' (default) is private to the people you add with tarkle_add_member_to_team_folder; 'everyone' is open to the whole workspace. No email is sent. Fails if a team folder with that name exists.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2944,7 +2944,7 @@
     },
     {
       "name": "tarkle_set_team_folder_budget",
-      "description": "Set how much storage one team folder may use, in GB (1 to 1000000), or remove the limit with unlimited true. Works for a first budget and for editing one (get teamFolderId from tarkle_list_team_folders). Only workspace Owners and Admins can. The budget cannot be lower than what the folder already uses, and the budgets together cannot exceed the workspace's storage. The folder's people are not changed. No email is sent. Team folders need a Pro or Agency plan.",
+      "description": "Set how much storage one team folder may use, in GB (1 to 1000000), or remove the limit with unlimited true. Works for a first budget and for editing one (get teamFolderId from tarkle_list_team_folders). Only workspace Owners and Admins can. The budget cannot be lower than what the folder already uses, and the budgets together cannot exceed the workspace's storage. The folder's people are not changed. No email is sent. Team folders need a Pro, Agency or lifetime plan.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3018,7 +3018,7 @@
     },
     {
       "name": "tarkle_add_member_to_team_folder",
-      "description": "Give one workspace member access to a members-only team folder. memberUserId is a userId from tarkle_list_members (the person must already be a workspace member: invite them first with tarkle_invite_member); teamFolderId is from tarkle_list_team_folders. An 'everyone' team folder has no member list. Only workspace Owners and Admins can. No email is sent. Does nothing if the person already has access. Team folders need a Pro or Agency plan.",
+      "description": "Give one workspace member access to a members-only team folder. memberUserId is a userId from tarkle_list_members (the person must already be a workspace member: invite them first with tarkle_invite_member); teamFolderId is from tarkle_list_team_folders. An 'everyone' team folder has no member list. Only workspace Owners and Admins can. No email is sent. Does nothing if the person already has access. Team folders need a Pro, Agency or lifetime plan.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3048,7 +3048,7 @@
     },
     {
       "name": "tarkle_remove_member_from_team_folder",
-      "description": "Take one person's access to a members-only team folder away. They stay a workspace member and keep their workspace role; only this folder closes for them. Files already in the folder stay in it. memberUserId is a userId from tarkle_list_members. Only workspace Owners and Admins can. No email is sent. Team folders need a Pro or Agency plan.",
+      "description": "Take one person's access to a members-only team folder away. They stay a workspace member and keep their workspace role; only this folder closes for them. Files already in the folder stay in it. memberUserId is a userId from tarkle_list_members. Only workspace Owners and Admins can. No email is sent. Team folders need a Pro, Agency or lifetime plan.",
       "inputSchema": {
         "type": "object",
         "properties": {
