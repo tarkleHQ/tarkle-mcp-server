@@ -41,7 +41,7 @@ Without an account, the user can sign up at https://tarkle.tech. You cannot crea
 ## Start here (MCP)
 
 1. For questions about the account, use `tarkle_whoami` or `tarkle_get_organization`. They need no workspace.
-2. For anything about files, call `tarkle_list_workspaces`. Other tools need a `workspaceId` from it. If there is more than one workspace, ask which one. If there are none, tell the user and offer to create one with `tarkle_list_regions` then `tarkle_create_workspace`. Ask the user which region; never choose for them.
+2. For anything about files, call `tarkle_list_workspaces`. Other tools need a `workspaceId` from it. If there is more than one workspace, ask which one. If there are none, tell the user and offer to create one with `tarkle_list_regions` then `tarkle_create_workspace`. When `tarkle_list_regions` lists regions, ask the user which one; never choose for them. When it answers `regionSetByProvider: true` (an account on a reseller's platform), do not ask about a region and leave `region` out: the provider sets it.
 
 ## Find and read files
 
@@ -64,7 +64,7 @@ Without an account, the user can sign up at https://tarkle.tech. You cannot crea
 
 - `tarkle_create_folder`, `tarkle_rename_file`, `tarkle_move_file`, `tarkle_copy_file`, `tarkle_rename_folder`, `tarkle_move_folder`.
 - `tarkle_update_details` sets tags and the description of one file or folder. Reuse existing tags from `tarkle_list_tags`.
-- `tarkle_delete_files` moves files to the recovery bin. `tarkle_list_bin` and `tarkle_restore_from_bin` bring them back. Nothing is deleted for good.
+- `tarkle_delete_files` moves files to the recovery bin, never deletes them at once. `tarkle_list_bin` and `tarkle_restore_from_bin` bring them back, but only within the plan's bin retention: after that they are gone (`EXPIRED`).
 
 ## Share files
 

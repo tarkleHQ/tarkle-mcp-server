@@ -70,9 +70,11 @@ Add to `.vscode/mcp.json`:
 hermes plugins install tarkleHQ/tarkle-mcp-server --no-enable
 hermes plugins enable tarkle
 hermes mcp add tarkle --url https://mcp.tarkle.tech/mcp --auth oauth
+hermes config set mcp_servers.tarkle.trust untrusted
+hermes config set mcp_servers.tarkle.timeout 300
 ```
 
-The plugin adds the Tarkle server and the Tarkle skill. The `hermes mcp add` line turns on the Tarkle sign-in: sign in to Tarkle in the browser tab that opens and approve the connection. Then ask "List my Tarkle workspaces". No API key is needed. Hermes asks before each Tarkle tool that is not read-only. If the sign-in expires, run `hermes mcp login tarkle`.
+The plugin adds the Tarkle server and the Tarkle skill. The `hermes mcp add` line turns on the Tarkle sign-in: sign in to Tarkle in the browser tab that opens and approve the connection. It replaces the plugin's server entry, so the two `hermes config set` lines put back the plugin's settings: Hermes asks before each Tarkle tool that is not read-only, and long uploads get 5 minutes. Run them before you start a chat. Then ask "List my Tarkle workspaces". No API key is needed. If the sign-in expires, run `hermes mcp login tarkle`.
 
 ### Kiro
 

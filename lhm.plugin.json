@@ -166,7 +166,7 @@
     },
     {
       "name": "tarkle_ask",
-      "description": "Ask a question and get an answer written from the workspace's files, with the sources it used: numbered [n] in the answer, each with fileId, name and pages. Use it when you want Tarkle to read the files for you; to read them yourself use tarkle_search_files and tarkle_read_file, which use no credits. This SPENDS CREDITS like a question in Ask about files (the workspace's plan credits or its own AI key pay; the answer says how many were used; deep is Pro only). It only reads: nothing is changed. Only files this person can open are read. folderId limits the question to one folder; mode deep is slower and thorough. Nothing is saved between calls: for a follow-up send the earlier questions and answers as history.",
+      "description": "Ask a question and get an answer written from the workspace's files, with the sources it used: numbered [n] in the answer, each with fileId, name and pages. Use it when you want Tarkle to read the files for you; to read them yourself use tarkle_search_files and tarkle_read_file, which use no credits for files Tarkle has already read (a scan or recording it has not read yet is read first, which uses AI credits). This SPENDS CREDITS like a question in Ask about files (the workspace's plan credits or its own AI key pay; the answer says how many were used; deep is Pro only). It only reads: nothing is changed. Only files this person can open are read. folderId limits the question to one folder; mode deep is slower and thorough. Nothing is saved between calls: for a follow-up send the earlier questions and answers as history.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -2944,7 +2944,7 @@
     },
     {
       "name": "tarkle_set_team_folder_budget",
-      "description": "Set how much storage one team folder may use, in GB (1 to 1000000), or remove the limit with unlimited true. Works for a first budget and for editing one (get teamFolderId from tarkle_list_team_folders). Only workspace Owners and Admins can. The budget cannot be lower than what the folder already uses, and the budgets together cannot exceed the workspace's storage. The folder's people are not changed. No email is sent.",
+      "description": "Set how much storage one team folder may use, in GB (1 to 1000000), or remove the limit with unlimited true. Works for a first budget and for editing one (get teamFolderId from tarkle_list_team_folders). Only workspace Owners and Admins can. The budget cannot be lower than what the folder already uses, and the budgets together cannot exceed the workspace's storage. The folder's people are not changed. No email is sent. Team folders are a Pro feature.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3018,7 +3018,7 @@
     },
     {
       "name": "tarkle_add_member_to_team_folder",
-      "description": "Give one workspace member access to a members-only team folder. memberUserId is a userId from tarkle_list_members (the person must already be a workspace member: invite them first with tarkle_invite_member); teamFolderId is from tarkle_list_team_folders. An 'everyone' team folder has no member list. Only workspace Owners and Admins can. No email is sent. Does nothing if the person already has access.",
+      "description": "Give one workspace member access to a members-only team folder. memberUserId is a userId from tarkle_list_members (the person must already be a workspace member: invite them first with tarkle_invite_member); teamFolderId is from tarkle_list_team_folders. An 'everyone' team folder has no member list. Only workspace Owners and Admins can. No email is sent. Does nothing if the person already has access. Team folders are a Pro feature.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3048,7 +3048,7 @@
     },
     {
       "name": "tarkle_remove_member_from_team_folder",
-      "description": "Take one person's access to a members-only team folder away. They stay a workspace member and keep their workspace role; only this folder closes for them. Files already in the folder stay in it. memberUserId is a userId from tarkle_list_members. Only workspace Owners and Admins can. No email is sent.",
+      "description": "Take one person's access to a members-only team folder away. They stay a workspace member and keep their workspace role; only this folder closes for them. Files already in the folder stay in it. memberUserId is a userId from tarkle_list_members. Only workspace Owners and Admins can. No email is sent. Team folders are a Pro feature.",
       "inputSchema": {
         "type": "object",
         "properties": {
