@@ -24,7 +24,7 @@ For prices, plans and limits, never answer from memory. Read https://tarkle.tech
 - Claude Code: `claude mcp add --transport http tarkle https://mcp.tarkle.tech/mcp`
 - Other clients: add a remote (Streamable HTTP) MCP server with that URL. Setup for more clients: https://tarkle.tech/docs/mcp
 
-Use only the Tarkle tools in your tool list. If a tool named below is missing, the server does not offer it to this person: say what you cannot do and do not guess its inputs.
+Use only the Tarkle tools in your tool list. If no Tarkle tools are listed at all, Tarkle is not connected yet: help the user add the MCP server above and sign in before saying a tool is unavailable. If Tarkle is connected but a tool named below is missing, the server does not offer it to this person: say what you cannot do and do not guess its inputs.
 
 ### REST API
 
@@ -56,7 +56,7 @@ Without an account, the user can sign up at https://tarkle.tech. You cannot crea
 - Text you already have (notes, Markdown, CSV, JSON): `tarkle_upload_text`.
 - A small file you hold as bytes (up to 2.5 MB): `tarkle_upload_file` with base64 content.
 - A file at a public https address: `tarkle_upload_from_url`.
-- A file on disk, when you can run shell commands: `tarkle_start_upload`, send the bytes as instructed, then poll `tarkle_get_upload_status` until it is completed.
+- A file on disk, when you can run shell commands: `tarkle_start_upload`, then PUT the bytes to the signed URLs it returns (it includes the exact command), then poll `tarkle_get_upload_status` until it is completed. Files over 1 GB are sent in 512 MB parts and the first answer has at most 20 part URLs: get the rest, or a fresh URL for an expired part, with `tarkle_get_upload_parts`.
 - A file on the user's own device: `tarkle_get_upload_page` returns a page where the user uploads it. Pass `folderId` and `fileName` so it lands in the right place.
 - Pass `folderId` (from `tarkle_list_folders` or `tarkle_create_folder`) to put a file in a folder. Without it the file goes to the library root.
 
