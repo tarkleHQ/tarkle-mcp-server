@@ -15,7 +15,7 @@ This repository holds the Gemini CLI extension and the client setup. The server 
 
 ## What you can do
 
-- **Manage files and folders.** Upload files, organize them in folders and team folders, rename, move, copy and tag them, and restore an earlier version or a file from the recovery bin.
+- **Manage files and folders.** Upload files, organize them in folders and team folders, rename, move, copy and tag them, and restore an earlier version (Pro) or a file from the recovery bin.
 - **Share files.** Share a build, an export or a report with a link, and see the links you already shared.
 - **Request documents.** Ask your team, clients or partners for files with an upload link, and see what they sent.
 - **Work with clients.** Keep contacts in one place and put files in a client's portal.
