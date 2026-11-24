@@ -64,6 +64,16 @@ Add to `.vscode/mcp.json`:
 }
 ```
 
+### Hermes Agent
+
+```bash
+hermes plugins install tarkleHQ/tarkle-mcp-server --no-enable
+hermes plugins enable tarkle
+hermes mcp add tarkle --url https://mcp.tarkle.tech/mcp --auth oauth
+```
+
+The plugin adds the Tarkle server and the Tarkle skill. The `hermes mcp add` line turns on the Tarkle sign-in: sign in to Tarkle in the browser tab that opens and approve the connection. Then ask "List my Tarkle workspaces". No API key is needed. Hermes asks before each Tarkle tool that is not read-only. If the sign-in expires, run `hermes mcp login tarkle`.
+
 ### Kiro
 
 Install the Tarkle power: https://github.com/tarkleHQ/tarkle-for-kiro
@@ -106,6 +116,9 @@ The table lists the 102 tools of the Tarkle MCP server. Your assistant gets the 
 | Path | What it is |
 | --- | --- |
 | `gemini-extension.json` | Gemini CLI extension manifest: the Tarkle server |
+| `plugin.json`, `mcp.json` | Hermes Agent plugin manifest and the Tarkle server |
+| `after-install.md` | Setup steps Hermes shows after install |
+| `skills/tarkle/SKILL.md` | Agent skill: how to use Tarkle's tools |
 | `GEMINI.md` | How the assistant uses Tarkle's tools |
 | `skills/tarkle/SKILL.md` | Agent skill for [skills.sh](https://skills.sh): `npx skills add tarkleHQ/tarkle-mcp-server` |
 | `assets/logo.svg`, `assets/logo.png` | Tarkle logo (SVG, and PNG at 816 x 816) |
