@@ -107,6 +107,7 @@ The table lists the 102 tools of the Tarkle MCP server. Your assistant gets the 
 | --- | --- |
 | `gemini-extension.json` | Gemini CLI extension manifest: the Tarkle server |
 | `GEMINI.md` | How the assistant uses Tarkle's tools |
+| `skills/tarkle/SKILL.md` | Agent skill for [skills.sh](https://skills.sh): `npx skills add tarkleHQ/tarkle-mcp-server` |
 | `assets/logo.svg`, `assets/logo.png` | Tarkle logo (SVG, and PNG at 816 x 816) |
 
 ## Privacy and support
