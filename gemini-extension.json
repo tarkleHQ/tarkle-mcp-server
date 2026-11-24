@@ -1,7 +1,7 @@
 {
   "name": "tarkle",
-  "version": "1.1.0",
-  "description": "Find, read and deliver your business files and documents from Gemini CLI. Answers cited from your own documents, PDF and Office editing, share links and file requests.",
+  "version": "1.1.1",
+  "description": "Upload, store and manage your team's files and folders from Gemini CLI. Share files and request documents from your team, clients and partners on your own domain, without leaving your terminal.",
   "mcpServers": {
     "tarkle": {
       "url": "https://mcp.tarkle.tech/mcp",

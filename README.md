@@ -2,7 +2,9 @@
 
 <img src="assets/logo.png" alt="Tarkle" width="64" height="64">
 
-Tarkle is AI-powered storage for business files. Teams keep their working files there: product specs, client briefs, contracts, brand assets, exports, reports and project handoffs. The Tarkle MCP server lets an AI assistant find, read and deliver those files: search inside them, answer questions with the file and page of each source, upload files with SHA-256 checks, edit PDF and Office files, send share links and request files from clients.
+**Upload, manage and share your business files.**
+
+Upload, store and manage your team's files and folders from your AI assistant. Share files and request documents from your team, clients and partners on your own domain, and keep all your business files organized without leaving your assistant.
 
 - Server: `https://mcp.tarkle.tech/mcp` (Streamable HTTP)
 - Sign-in: OAuth 2.1 with your own Tarkle account (dynamic client registration, PKCE). No API key.
@@ -13,13 +15,12 @@ This repository holds the Gemini CLI extension and the client setup. The server 
 
 ## What you can do
 
-- **Find any file.** Search the words inside PDFs, Word files and text across a workspace, then read the passage you need into your session. Recordings are read as timestamped transcripts.
-- **Get answers from your files.** Ask a question and get an answer written from your files, with the file and page of each source.
-- **Work with documents.** Convert files, run OCR, redact, compress, and merge, split or reorder PDF pages. Every edit is saved as a new file.
-- **Keep files in order.** Upload, rename, move and copy files, rename and move folders, add tags and descriptions, and restore an earlier version (Pro). Files you remove go to the recovery bin and can be restored.
-- **Deliver files.** Send a build, an export or a report with a share link, list the links you already sent, put a file in a client's portal, or ask a client for missing files with an upload link.
-- **Set up a workspace.** Create a workspace in the region you choose, change its settings, logo and address, connect a custom domain, and manage invitations and contacts.
-- **See what happened.** Read the activity log: who viewed, downloaded, moved or shared a file, and when. Check storage and AI credits left.
+- **Manage files and folders.** Upload files, organize them in folders and team folders, rename, move, copy and tag them, and restore an earlier version or a file from the recovery bin.
+- **Share files.** Share a build, an export or a report with a link, and see the links you already shared.
+- **Request documents.** Ask your team, clients or partners for files with an upload link, and see what they sent.
+- **Work with clients.** Keep contacts in one place and put files in a client's portal.
+- **Run your workspace.** Create a workspace, change its settings, logo and address, connect your own domain, manage members and invitations, and read the activity log.
+- **Find files.** Search the words inside files across a workspace and read the passage you need into your session.
 
 The assistant acts as you, within your role in each workspace. It asks before it creates a public link or file request, moves files to the bin, or changes workspace settings, members, invitations, domains or portal access. A workspace owner can turn off groups of actions for AI agents and hide folders from them.
 
