@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "tarkle",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Connect Tarkle to your AI assistant to upload, store and organize your team's files and folders, share files, and request documents from your team, clients and partners on your own domain.",
   "author": {
     "name": "Tarkle",
@@ -10,7 +10,13 @@
   "homepage": "https://tarkle.tech/docs/mcp",
   "repository": "https://github.com/tarkleHQ/tarkle-mcp-server",
   "license": "Apache-2.0",
-  "keywords": ["files", "documents", "file-sharing", "file-requests", "mcp"],
+  "keywords": [
+    "files",
+    "documents",
+    "file-sharing",
+    "file-requests",
+    "mcp"
+  ],
   "extensions": {
     "com.nousresearch.hermes": {
       "servers": {

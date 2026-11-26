@@ -1,0 +1,27 @@
+{
+  "name": "tarkle",
+  "displayName": "Tarkle",
+  "version": "1.1.2",
+  "description": "Upload, manage and share your business files. Connect Tarkle to upload, store and organize your team's files and folders, share files, and request documents from your team, clients and partners on your own domain.",
+  "author": {
+    "name": "Tarkle",
+    "email": "support@tarkle.tech",
+    "url": "https://tarkle.tech"
+  },
+  "homepage": "https://tarkle.tech/docs/mcp",
+  "repository": "https://github.com/tarkleHQ/tarkle-mcp-server",
+  "license": "Apache-2.0",
+  "keywords": ["files", "file-sharing", "file-requests", "documents", "folders", "mcp"],
+  "icon": "https://tarkle.tech/tarkle-logo-square.png",
+  "documentationUrl": "https://tarkle.tech/docs/mcp",
+  "supportUrl": "https://tarkle.tech/contact",
+  "privacyPolicyUrl": "https://tarkle.tech/privacy",
+  "termsOfServiceUrl": "https://tarkle.tech/terms",
+  "network": { "hosts": ["mcp.tarkle.tech"] },
+  "mcpServers": {
+    "tarkle": {
+      "type": "http",
+      "url": "https://mcp.tarkle.tech/mcp"
+    }
+  }
+}

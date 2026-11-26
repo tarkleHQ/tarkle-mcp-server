@@ -1,0 +1,16 @@
+{
+  "name": "tarkle",
+  "owner": {
+    "name": "Tarkle",
+    "email": "support@tarkle.tech",
+    "url": "https://tarkle.tech"
+  },
+  "description": "Tarkle's official plugin: upload, manage and share your business files from Claude Code and Cowork.",
+  "plugins": [
+    {
+      "name": "tarkle",
+      "source": "./",
+      "description": "Upload, manage and share your business files. Connect Tarkle to upload, store and organize your team's files and folders, share files, and request documents from your team, clients and partners on your own domain."
+    }
+  ]
+}

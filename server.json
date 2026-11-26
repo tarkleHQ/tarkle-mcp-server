@@ -3,7 +3,7 @@
   "name": "tech.tarkle/tarkle",
   "title": "Tarkle",
   "description": "Upload, manage and share your business files, and request documents from clients and partners.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "websiteUrl": "https://tarkle.tech/docs/mcp",
   "repository": {
     "url": "https://github.com/tarkleHQ/tarkle-mcp-server",
@@ -13,7 +13,9 @@
     {
       "src": "https://tarkle.tech/tarkle-logo-square.png",
       "mimeType": "image/png",
-      "sizes": ["816x816"]
+      "sizes": [
+        "816x816"
+      ]
     }
   ],
   "remotes": [
