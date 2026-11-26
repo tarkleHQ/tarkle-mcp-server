@@ -12,7 +12,7 @@ The same rule as the main Tarkle repository: one branch for everyone, people, co
 
 ## What lives here
 
-Listing files for directories and agent marketplaces: `gemini-extension.json` and `GEMINI.md` (Gemini CLI), `plugin.json`, `mcp.json` and `after-install.md` (Hermes Agent), `skills/tarkle/SKILL.md` (skills.sh and Hermes), `server.json` (official MCP Registry), `lhm.plugin.json` (LobeHub), and the logos in `assets/`. The MCP server itself is hosted at `https://mcp.tarkle.tech/mcp`; its code is not in this repository.
+Listing files for directories and agent marketplaces: `.claude-plugin/` and `.mcp.json` (Claude Code and Cowork plugin, Anthropic's plugin directory), `gemini-extension.json` and `GEMINI.md` (Gemini CLI), `plugin.json` and `mcp.json` (Hermes Agent, and the ChatGPT and Codex plugin directory through `extensions.com.openai`), `after-install.md` (Hermes Agent), `skills/tarkle/SKILL.md` and `skills/tarkle-get-started/SKILL.md` (skills.sh, Hermes, Claude and ChatGPT), `server.json` (official MCP Registry), `lhm.plugin.json` (LobeHub), and the logos in `assets/`. The MCP server itself is hosted at `https://mcp.tarkle.tech/mcp`; its code is not in this repository.
 
 ## Copy
 

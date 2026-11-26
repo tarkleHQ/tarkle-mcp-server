@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tarkle": {
+      "type": "http",
+      "url": "https://mcp.tarkle.tech/mcp"
+    }
+  }
+}

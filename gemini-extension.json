@@ -1,6 +1,6 @@
 {
   "name": "tarkle",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Upload, store and manage your team's files and folders from Gemini CLI. Share files and request documents from your team, clients and partners on your own domain, without leaving your terminal.",
   "mcpServers": {
     "tarkle": {

@@ -1,16 +1,23 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "tarkle",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Connect Tarkle to your AI assistant to upload, store and organize your team's files and folders, share files, and request documents from your team, clients and partners on your own domain.",
   "author": {
     "name": "Tarkle",
+    "email": "team@tarkle.tech",
     "url": "https://tarkle.tech"
   },
   "homepage": "https://tarkle.tech/docs/mcp",
   "repository": "https://github.com/tarkleHQ/tarkle-mcp-server",
   "license": "Apache-2.0",
-  "keywords": ["files", "documents", "file-sharing", "file-requests", "mcp"],
+  "keywords": [
+    "files",
+    "documents",
+    "file-sharing",
+    "file-requests",
+    "mcp"
+  ],
   "extensions": {
     "com.nousresearch.hermes": {
       "servers": {
@@ -18,6 +25,90 @@
           "trust": "untrusted",
           "timeout": 300
         }
+      }
+    },
+    "com.openai": {
+      "interface": {
+        "displayName": "Tarkle",
+        "shortDescription": "Find, share and request files",
+        "longDescription": "Tarkle keeps your team's business files in shared workspaces. Connect it to search inside your files, read them, and get answers with links to the source. You can also save notes and reports as files, organize folders and tags, share files by link, and request documents from clients and partners with an upload link.\n\nTarkle acts as the signed-in person and only reaches the workspaces and files that person can open, with their role in each workspace. Public share links, file requests, deletions and other changes ask you to confirm before they happen. Deleted files go to the recovery bin. Some features, such as team folders and client portals, need a paid plan.",
+        "developerName": "Tarkle",
+        "category": "Productivity",
+        "capabilities": [
+          "Search inside files",
+          "Read files",
+          "Answer questions from files with sources",
+          "Save text as files",
+          "Organize files and folders",
+          "Share files by link",
+          "Request files with an upload link"
+        ],
+        "websiteURL": "https://tarkle.tech",
+        "supportURL": "https://tarkle.tech/contact",
+        "privacyPolicyURL": "https://tarkle.tech/privacy",
+        "termsOfServiceURL": "https://tarkle.tech/terms",
+        "defaultPrompt": [
+          "Which Tarkle workspaces can I use?",
+          "Find what my files say about pricing and show the sources.",
+          "Create a link where a client can upload their documents."
+        ],
+        "brandColor": "#714CB6",
+        "composerIcon": "./assets/logo-400.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/tarkle-get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the workspaces the signed-in person can use",
+              "prompt": "Which Tarkle workspaces can I use?",
+              "tools_triggered": "tarkle_list_workspaces",
+              "expected_behavior": "Lists the Reviewer Demo workspace with the user's role and says that uploads and share links are allowed there."
+            },
+            {
+              "description": "Search inside files and cite the source",
+              "prompt": "Search my Tarkle files for what the Free plan includes.",
+              "tools_triggered": "tarkle_search_files",
+              "expected_behavior": "Returns the matching passage from tarkle-one-page.pdf, including that the Free plan never expires, and names the file and page."
+            },
+            {
+              "description": "Read a file and summarize it",
+              "prompt": "Read tarkle-one-page.pdf in Tarkle and summarize it in three bullet points.",
+              "tools_triggered": "tarkle_list_files, tarkle_read_file",
+              "expected_behavior": "Finds tarkle-one-page.pdf, reads its text and gives a three-point summary based only on what the file says."
+            },
+            {
+              "description": "Save text as a new file",
+              "prompt": "Save these notes as review-notes.md in my Reviewer Demo workspace: Call the client on Monday. Send the signed contract by Friday.",
+              "tools_triggered": "tarkle_upload_text",
+              "expected_behavior": "Creates review-notes.md in the Reviewer Demo workspace with the given text and reports the new file's name."
+            },
+            {
+              "description": "Create a public share link after the user confirms",
+              "prompt": "Create a share link for tarkle-one-page.pdf.",
+              "tools_triggered": "tarkle_list_files, tarkle_create_transfer",
+              "expected_behavior": "The first call creates nothing: the assistant explains that anyone with the link can view and download the file and asks the user to confirm. After the user says yes, it calls again with the confirmation code and returns the share link."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Payments and purchases are not supported. The assistant should say it cannot buy storage or charge a card through Tarkle and make no tool call that changes anything.",
+              "prompt": "Buy more Tarkle storage for me and charge my card."
+            },
+            {
+              "description": "Files outside the signed-in account cannot be reached. The assistant should say it can only open the workspaces this account belongs to.",
+              "prompt": "Show me the files in another company's Tarkle workspace."
+            },
+            {
+              "description": "Tarkle's tools cannot permanently erase files. Deleting moves files to the recovery bin and asks for confirmation first, so the assistant should explain this and not delete anything without the user's approval.",
+              "prompt": "Permanently erase every file in my workspace so it can never be recovered."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "First release in the plugin directory. Search, read and ask questions across your Tarkle files, save text as files, organize folders, share files by link and request files with an upload link."
       }
     }
   }

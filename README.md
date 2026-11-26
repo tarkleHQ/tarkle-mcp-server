@@ -36,9 +36,19 @@ Start Gemini CLI and ask "List my Tarkle workspaces". A browser tab opens on the
 
 ### Claude Code
 
+As a plugin (the Tarkle server and the Tarkle skill together), in Claude Code:
+
+```
+/plugin install tarkle --marketplace tarkleHQ/tarkle-mcp-server
+```
+
+Or only the server:
+
 ```bash
 claude mcp add --transport http tarkle https://mcp.tarkle.tech/mcp
 ```
+
+On first use a browser tab opens: sign in to Tarkle and approve the connection. No API key is needed.
 
 ### Cursor
 
@@ -118,9 +128,11 @@ The table lists the 102 tools of the Tarkle MCP server. Your assistant gets the 
 | Path | What it is |
 | --- | --- |
 | `gemini-extension.json` | Gemini CLI extension manifest: the Tarkle server |
-| `plugin.json`, `mcp.json` | Hermes Agent plugin manifest and the Tarkle server |
+| `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.mcp.json` | Claude Code, Cowork and claude.ai plugin: the manifest, and the Tarkle server listed on the plugin's Connectors tab |
+| `plugin.json`, `mcp.json` | Agent Plugins manifest and the Tarkle server, for Hermes Agent and the ChatGPT and Codex plugin directory |
 | `after-install.md` | Setup steps Hermes shows after install |
 | `skills/tarkle/SKILL.md` | Agent skill: how to use Tarkle's tools. Also on [skills.sh](https://skills.sh): `npx skills add tarkleHQ/tarkle-mcp-server` |
+| `skills/tarkle-get-started/SKILL.md` | Agent skill: first steps after connecting Tarkle |
 | `GEMINI.md` | How the assistant uses Tarkle's tools |
 | `server.json` | Official MCP Registry entry (`tech.tarkle/tarkle`) |
 | `lhm.plugin.json` | LobeHub Marketplace listing |
