@@ -101,13 +101,11 @@
               "prompt": "Show me the files in another company's Tarkle workspace."
             },
             {
-              "description": "Tarkle cannot permanently erase files. Deleting moves files to the recovery bin and asks for confirmation first, so the assistant should explain this and not delete anything without the user's approval.",
+              "description": "Tarkle's tools cannot permanently erase files. Deleting moves files to the recovery bin and asks for confirmation first, so the assistant should explain this and not delete anything without the user's approval.",
               "prompt": "Permanently erase every file in my workspace so it can never be recovered."
             }
           ]
-        },
-        "commerce": false,
-        "commerce_description": "Tarkle does not sell products or take payments through this plugin."
+        }
       },
       "publication": {
         "release_notes": "First release in the plugin directory. Search, read and ask questions across your Tarkle files, save text as files, organize folders, share files by link and request files with an upload link."

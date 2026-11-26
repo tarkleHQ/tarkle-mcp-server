@@ -17,11 +17,5 @@
   "supportUrl": "https://tarkle.tech/contact",
   "privacyPolicyUrl": "https://tarkle.tech/privacy",
   "termsOfServiceUrl": "https://tarkle.tech/terms",
-  "network": { "hosts": ["mcp.tarkle.tech"] },
-  "mcpServers": {
-    "tarkle": {
-      "type": "http",
-      "url": "https://mcp.tarkle.tech/mcp"
-    }
-  }
+  "network": { "hosts": ["mcp.tarkle.tech"] }
 }
