@@ -1,0 +1,14 @@
+{
+  "id": "tarkle",
+  "name": "Tarkle",
+  "description": "Upload, manage and share your business files. Upload, store and organize your team's files and folders, search inside them with sources, share files by link, and request documents from your team, clients and partners on your own domain.",
+  "version": "1.1.2",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "categories": [
+    "documents-files"
+  ]
+}
