@@ -8,12 +8,7 @@
     "additionalProperties": false,
     "properties": {}
   },
-  "mcpServers": {
-    "tarkle": {
-      "transport": "streamable-http",
-      "url": "https://mcp.tarkle.tech/mcp"
-    }
-  },
-  "skills": ["skills"],
-  "categories": ["documents-files"]
+  "categories": [
+    "documents-files"
+  ]
 }
