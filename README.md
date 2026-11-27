@@ -133,6 +133,7 @@ The table lists the 102 tools of the Tarkle MCP server. Your assistant gets the 
 | `after-install.md` | Setup steps Hermes shows after install |
 | `skills/tarkle/SKILL.md` | Agent skill: how to use Tarkle's tools. Also on [skills.sh](https://skills.sh): `npx skills add tarkleHQ/tarkle-mcp-server` |
 | `skills/tarkle-get-started/SKILL.md` | Agent skill: first steps after connecting Tarkle |
+| `openclaw.plugin.json`, `package.json`, `assets/icon.png` | OpenClaw plugin for ClawHub (`@tarklehq/tarkle`): the Tarkle server and skills |
 | `GEMINI.md` | How the assistant uses Tarkle's tools |
 | `server.json` | Official MCP Registry entry (`tech.tarkle/tarkle`) |
 | `lhm.plugin.json` | LobeHub Marketplace listing |

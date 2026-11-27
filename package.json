@@ -1,0 +1,11 @@
+{
+  "name": "@tarklehq/tarkle",
+  "version": "1.1.2",
+  "description": "Upload, manage and share your business files with Tarkle from OpenClaw: Tarkle's hosted MCP server and skills.",
+  "license": "Apache-2.0",
+  "homepage": "https://tarkle.tech/docs/mcp",
+  "repository": { "type": "git", "url": "https://github.com/tarkleHQ/tarkle-mcp-server.git" },
+  "author": { "name": "Tarkle", "email": "team@tarkle.tech", "url": "https://tarkle.tech" },
+  "keywords": ["tarkle", "openclaw", "mcp", "files", "file-sharing"],
+  "files": ["openclaw.plugin.json", "plugin.json", "mcp.json", "skills", "assets", "README.md", "LICENSE"]
+}
